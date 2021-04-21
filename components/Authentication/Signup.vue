@@ -61,7 +61,7 @@
           >
         </div>
 
-        <p class="mt-8 mb-3 text-sm">
+        <p class="mt-8 mb-3 text-sm leading-tight">
           By signing up, you agree to the terms and conditons. Others will be
           able to find you by email or username when provided.
         </p>
