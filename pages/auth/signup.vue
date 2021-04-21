@@ -18,7 +18,7 @@ export default {
 <style scoped>
 .home-enter-active,
 .home-leave-active {
-  transition: opacity 0.3s;
+  transition: opacity 0.5s;
 }
 .home-enter,
 .home-leave-active {
