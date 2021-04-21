@@ -32,7 +32,7 @@
           <input
             id="email"
             v-model="email"
-            type="text"
+            type="email"
             class="w-full border border-faded-gray bg-transparent email p-3 focus:outline-none"
           />
           <label for="email" class="email-label text-light-gray text-md pb-1"
@@ -91,23 +91,74 @@
 
 <script>
 import datepicker from '~/components/DatePicker/datepicker'
+import { eventBus } from '~/utils/bus'
 
 export default {
   components: {
     datepicker,
   },
+  // props: {
+  //   name: {
+  //     type: String,
+  //     required: true,
+  //   },
+  //   email: {
+  //     type: String,
+  //     required: true,
+  //   },
+  //   password: {
+  //     type: String,
+  //     required: true,
+  //   },
+  // },
   data() {
     return {
+      name: '',
       email: '',
       password: '',
+      dob: {
+        month: '',
+        year: 0,
+        day: 0,
+      },
     }
   },
-  mounted() {},
+  computed: {
+    updatemonth() {
+      return eventBus.$on('month', (data) => {
+        this.dob.month = data.month
+      })
+    },
+    updateyear() {
+      return eventBus.$on('year', (data) => {
+        this.dob.year = data.year
+      })
+    },
+    updateday() {
+      return eventBus.$on('day', (data) => {
+        this.dob.day = data.day
+      })
+    },
+  },
+  mounted() {
+    this.updateMonth()
+    this.updateYear()
+    this.updateDay()
+  },
   methods: {
     signup() {
       if (this.email !== '' && this.password !== '') {
-        alert('you cliked the login button')
+        alert(JSON.stringify(this.dob))
       }
+    },
+    updateMonth() {
+      return this.updatemonth
+    },
+    updateYear() {
+      return this.updateyear
+    },
+    updateDay() {
+      return this.updateday
     },
   },
 }
@@ -125,7 +176,12 @@ h1 {
   margin: 0 auto;
 }
 
-input[type='text']:focus + .email-label {
+input[type='text']:focus + .name-label {
+  transition: 0.3s ease-in-out;
+  @apply text-light-blue text-sm;
+}
+
+input[type='email']:focus + .email-label {
   transition: 0.3s ease-in-out;
   @apply text-light-blue text-sm;
 }

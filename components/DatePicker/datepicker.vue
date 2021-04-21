@@ -3,12 +3,13 @@
     <div class="custom-select w-full">
       <select
         class="w-full bg-transparent text-light-gray border border-light-gray rounded py-3 px-1"
+        @change="editValue('month', $event)"
       >
         <option
           v-for="(month, index) in months"
-          :key="month"
+          :key="index"
           class="bg-black"
-          :value="index"
+          :value="month"
         >
           {{ month }}
         </option>
@@ -17,6 +18,7 @@
     <div class="custom-select w-full">
       <select
         class="w-full bg-transparent text-light-gray border border-light-gray rounded py-3"
+        @change="editValue('year', $event)"
       >
         <option
           v-for="i in numberOfYears"
@@ -32,6 +34,7 @@
     <div class="custom-select w-full">
       <select
         class="w-full bg-transparent text-light-gray border border-light-gray rounded py-3"
+        @change="editValue('day', $event)"
       >
         <option v-for="i in daysInMonths" :key="i" class="bg-black" :value="i">
           {{ i }}
@@ -43,6 +46,7 @@
 
 <script>
 import moment from 'moment'
+import { eventBus } from '~/utils/bus'
 
 export default {
   props: {},
@@ -68,7 +72,21 @@ export default {
       daysInMonths: moment().daysInMonth(),
     }
   },
-  methods: {},
+  methods: {
+    editValue(unit, event) {
+      if (unit === 'month') {
+        return eventBus.$emit('month', { month: event.target.value })
+      }
+
+      if (unit === 'year') {
+        return eventBus.$emit('year', { year: event.target.value })
+      }
+
+      if (unit === 'day') {
+        eventBus.$emit('day', { day: event.target.value })
+      }
+    },
+  },
 }
 </script>
 

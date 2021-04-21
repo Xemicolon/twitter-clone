@@ -1,6 +1,9 @@
 export default {
   // Disable server-side rendering (https://go.nuxtjs.dev/ssr-mode)
   ssr: false,
+  loading: {
+    height: '5px',
+  },
 
   // Global page headers (https://go.nuxtjs.dev/config-head)
   head: {
@@ -11,12 +14,6 @@ export default {
       { hid: 'description', name: 'description', content: '' },
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
-    script: [
-      {
-        src:
-          'https://unpkg.com/vue-datetime@1.0.0-beta.14/dist/vue-datetime.js',
-      },
-    ],
   },
 
   // Global CSS (https://go.nuxtjs.dev/config-css)
