@@ -20,6 +20,7 @@
           <input
             id="name"
             v-model="name"
+            required
             type="text"
             class="w-full border border-faded-gray bg-transparent email p-3 focus:outline-none"
           />
@@ -33,6 +34,7 @@
             id="email"
             v-model="email"
             type="email"
+            required
             class="w-full border border-faded-gray bg-transparent email p-3 focus:outline-none"
           />
           <label for="email" class="email-label text-light-gray text-md pb-1"
@@ -60,6 +62,7 @@
             id="password"
             v-model="password"
             type="password"
+            required
             class="w-full border border-faded-gray bg-transparent password p-3 focus:outline-none"
           />
           <label
