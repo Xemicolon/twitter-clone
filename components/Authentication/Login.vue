@@ -19,7 +19,7 @@
       <form class="w-full" @submit.prevent="login">
         <div class="email-row flex flex-col-reverse mb-5">
           <p
-            class="text-light-blue text-sm cursor-pointer pt-2"
+            class="text-light-blue text-sm cursor-pointer pt-2 font-semibold"
             @click="show = !show"
           >
             {{ show ? 'Use username' : 'Use email' }}
