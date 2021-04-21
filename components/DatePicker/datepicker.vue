@@ -1,8 +1,8 @@
 <template>
-  <div class="date-picker flex flex-row justify-between w-8/12">
-    <div class="custom-select">
+  <div class="date-picker flex flex-row justify-between sm:w-8/12">
+    <div class="custom-select w-full sm:w-auto">
       <select
-        class="bg-transparent text-light-gray border border-light-gray rounded"
+        class="w-full bg-transparent text-light-gray border border-light-gray rounded"
         @change="editValue('day', $event)"
       >
         <option v-for="i in daysInMonths" :key="i" class="bg-black" :value="i">
@@ -11,9 +11,9 @@
       </select>
     </div>
 
-    <div class="custom-select">
+    <div class="custom-select w-full sm:w-auto">
       <select
-        class="bg-transparent text-light-gray border border-light-gray rounded"
+        class="w-full bg-transparent text-light-gray border border-light-gray rounded"
         @change="editValue('year', $event)"
       >
         <option
@@ -27,9 +27,9 @@
       </select>
     </div>
 
-    <div class="custom-select">
+    <div class="custom-select w-full sm:w-auto">
       <select
-        class="bg-transparent text-light-gray border border-light-gray rounded"
+        class="w-full bg-transparent text-light-gray border border-light-gray rounded"
         @change="editValue('month', $event)"
       >
         <option
