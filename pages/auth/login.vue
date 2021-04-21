@@ -23,5 +23,6 @@ export default {
 .home-enter,
 .home-leave-active {
   opacity: 0;
+  @apply bg-dark;
 }
 </style>
