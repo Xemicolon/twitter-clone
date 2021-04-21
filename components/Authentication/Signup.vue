@@ -48,7 +48,7 @@
         </div>
 
         <div class="password-row flex flex-col-reverse justify-evenly mb-6">
-          <p class="pt-2 text-sm">
+          <p v-if="password.length >= 1" class="pt-2 text-sm">
             Not sure what you entered?
             <span
               class="text-light-blue cursor-pointer"
