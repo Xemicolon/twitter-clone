@@ -1,5 +1,7 @@
 <template>
-  <div class="date-picker flex flex-row justify-between sm:w-8/12">
+  <div
+    class="date-picker grid grid-cols-3 gap-3 sm:flex sm:flex-row sm:justify-between sm:w-8/12"
+  >
     <div class="custom-select w-full sm:w-auto">
       <select
         class="w-full bg-transparent text-light-gray border border-light-gray rounded"
