@@ -1,23 +1,19 @@
 <template>
-  <div class="date-picker grid grid-cols-3 gap-3">
-    <div class="custom-select w-full">
+  <div class="date-picker flex flex-row justify-between w-8/12">
+    <div class="custom-select">
       <select
-        class="w-full bg-transparent text-light-gray border border-light-gray rounded py-3 px-1"
-        @change="editValue('month', $event)"
+        class="bg-transparent text-light-gray border border-light-gray rounded"
+        @change="editValue('day', $event)"
       >
-        <option
-          v-for="(month, index) in months"
-          :key="index"
-          class="bg-black"
-          :value="month"
-        >
-          {{ month }}
+        <option v-for="i in daysInMonths" :key="i" class="bg-black" :value="i">
+          {{ i }}
         </option>
       </select>
     </div>
-    <div class="custom-select w-full">
+
+    <div class="custom-select">
       <select
-        class="w-full bg-transparent text-light-gray border border-light-gray rounded py-3"
+        class="bg-transparent text-light-gray border border-light-gray rounded"
         @change="editValue('year', $event)"
       >
         <option
@@ -31,13 +27,18 @@
       </select>
     </div>
 
-    <div class="custom-select w-full">
+    <div class="custom-select">
       <select
-        class="w-full bg-transparent text-light-gray border border-light-gray rounded py-3"
-        @change="editValue('day', $event)"
+        class="bg-transparent text-light-gray border border-light-gray rounded"
+        @change="editValue('month', $event)"
       >
-        <option v-for="i in daysInMonths" :key="i" class="bg-black" :value="i">
-          {{ i }}
+        <option
+          v-for="(month, index) in months"
+          :key="index"
+          class="bg-black"
+          :value="month"
+        >
+          {{ month }}
         </option>
       </select>
     </div>
@@ -91,6 +92,10 @@ export default {
 </script>
 
 <style>
+select {
+  padding: 0.35rem 0;
+}
+
 select:focus {
   transition: 0.3s;
   @apply text-light-blue border-light-blue;

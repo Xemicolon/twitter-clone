@@ -48,6 +48,12 @@
         </div>
 
         <div class="password-row flex flex-col-reverse justify-evenly mb-6">
+          <p class="pt-2 text-sm">
+            Not sure what you entered?
+            <span class="text-light-blue cursor-pointer" @click="showPassword"
+              >Show password</span
+            >
+          </p>
           <input
             id="password"
             v-model="password"
@@ -147,8 +153,21 @@ export default {
   },
   methods: {
     signup() {
-      if (this.email !== '' && this.password !== '') {
-        alert(JSON.stringify(this.dob))
+      const newuser = {
+        name: this.name,
+        email: this.email,
+        password: this.password,
+        dob: this.dob,
+      }
+
+      alert(JSON.stringify(newuser))
+    },
+    showPassword() {
+      const pwd = document.getElementById('password')
+      if (pwd.type === 'password') {
+        pwd.type = 'text'
+      } else {
+        pwd.type = 'password'
       }
     },
     updateMonth() {
