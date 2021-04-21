@@ -11,7 +11,7 @@ export default {
     Signup,
   },
   transition: 'home',
-  mode: 'out-in',
+  mode: 'in-out',
 }
 </script>
 
@@ -23,6 +23,5 @@ export default {
 .home-enter,
 .home-leave-active {
   opacity: 0;
-  @apply bg-dark;
 }
 </style>

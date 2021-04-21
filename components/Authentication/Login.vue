@@ -16,20 +16,41 @@
     </p>
 
     <div class="form mt-4">
-      <form class="w-full">
+      <form class="w-full" @submit.prevent="login">
         <div class="email-row flex flex-col-reverse justify-evenly mb-5">
+          <p class="text-light-blue cursor-pointer pt-2" @click="show = !show">
+            {{ show ? 'Use username' : 'Use email' }}
+          </p>
           <input
+            v-if="show"
             id="email"
-            v-model="emailorusername"
+            v-model="email"
+            type="email"
+            class="w-full border border-faded-gray bg-transparent email p-3 focus:outline-none"
+          />
+          <input
+            v-if="!show"
+            id="username"
+            v-model="username"
             type="text"
             class="w-full border border-faded-gray bg-transparent email p-3 focus:outline-none"
           />
-          <label for="email" class="email-label text-light-gray text-md pb-1"
-            >Email or username</label
-          >
+          <label
+            for="username"
+            class="username-label text-light-gray text-md pb-1"
+            >{{ show ? 'Email' : 'Username' }}
+          </label>
         </div>
 
         <div class="password-row flex flex-col-reverse justify-evenly mb-6">
+          <p v-if="password.length >= 1" class="pt-2 text-sm">
+            Not sure what you entered?
+            <span
+              class="text-light-blue cursor-pointer"
+              @click="showPassword"
+              >{{ pwdTxt }}</span
+            >
+          </p>
           <input
             id="password"
             v-model="password"
@@ -44,7 +65,7 @@
         </div>
 
         <button
-          type="button"
+          type="submit"
           :disabled="emailorusername === '' || password === ''"
           :class="
             emailorusername !== '' && password !== ''
@@ -52,7 +73,6 @@
               : 'opacity-50 cursor-default'
           "
           class="w-full rounded-full bg-light-blue font-bold py-2 focus:outline-none"
-          @click="login"
         >
           Login
         </button>
@@ -76,14 +96,31 @@
 export default {
   data() {
     return {
-      emailorusername: '',
+      show: true,
+      email: '',
+      username: '',
       password: '',
+      logininfo: 'Use username instead',
+      pwdTxt: 'Show password',
     }
   },
   methods: {
     login() {
-      if (this.emailorusername !== '' && this.password !== '') {
-        alert('you cliked the login button')
+      const user = {
+        email: this.email,
+        username: this.username,
+        password: this.password,
+      }
+      alert(JSON.stringify(user))
+    },
+    showPassword() {
+      const pwd = document.getElementById('password')
+      if (pwd.type === 'password') {
+        pwd.type = 'text'
+        this.pwdTxt = 'Hide password'
+      } else {
+        pwd.type = 'password'
+        this.pwdTxt = 'Show password'
       }
     },
   },
@@ -107,6 +144,11 @@ input[type='text']:focus + .email-label {
   @apply text-light-blue text-sm;
 }
 
+input[type='text']:focus + .username-label {
+  transition: 0.3s ease-in-out;
+  @apply text-light-blue text-sm;
+}
+
 input[type='password']:focus + .password-label {
   transition: 0.3s ease-in-out;
   @apply text-light-blue text-sm;
@@ -119,7 +161,8 @@ input:focus:not([readonly]) {
 }
 
 .email-label,
-.password-label {
+.password-label,
+.username-label {
   transition: all 0.3s;
 }
 </style>
