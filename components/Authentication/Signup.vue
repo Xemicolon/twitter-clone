@@ -15,7 +15,7 @@
     </h1>
 
     <div class="form mt-4">
-      <form class="w-full">
+      <form class="w-full" @submit.prevent="signup">
         <div class="name-row flex flex-col-reverse justify-evenly mb-5">
           <input
             id="name"
@@ -78,7 +78,7 @@
         </p>
 
         <button
-          type="button"
+          type="submit"
           :disabled="email === '' || password === ''"
           :class="
             email !== '' && password !== ''
@@ -86,7 +86,6 @@
               : 'opacity-50 cursor-default'
           "
           class="w-full rounded-full bg-light-blue font-bold py-2 focus:outline-none"
-          @click="signup"
         >
           Sign up
         </button>

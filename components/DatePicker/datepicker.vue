@@ -4,7 +4,7 @@
   >
     <div class="custom-select w-full sm:w-auto">
       <select
-        class="w-full bg-transparent text-light-gray border border-faded-gray rounded focus:outline-none"
+        class="w-full bg-transparent text-light-gray border border-faded-gray rounded focus:outline-none pl-2 sm:pl-0"
         @change="editValue('day', $event)"
       >
         <option v-for="i in daysInMonths" :key="i" class="bg-black" :value="i">
@@ -15,7 +15,7 @@
 
     <div class="custom-select w-full sm:w-auto">
       <select
-        class="w-full bg-transparent text-light-gray border border-faded-gray rounded focus:outline-none"
+        class="w-full bg-transparent text-light-gray border border-faded-gray rounded focus:outline-none pl-2 sm:pl-0"
         @change="editValue('year', $event)"
       >
         <option
@@ -31,7 +31,7 @@
 
     <div class="custom-select w-full sm:w-auto">
       <select
-        class="w-full bg-transparent text-light-gray border border-faded-gray rounded focus:outline-none"
+        class="w-full bg-transparent text-light-gray border border-faded-gray rounded focus:outline-none pl-2 sm:pl-0"
         @change="editValue('month', $event)"
       >
         <option
