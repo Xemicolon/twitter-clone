@@ -17,7 +17,7 @@
 
     <div class="form mt-4">
       <form class="w-full" @submit.prevent="login">
-        <div class="email-row flex flex-col-reverse justify-evenly mb-5">
+        <div class="email-row flex flex-col-reverse mb-5">
           <p
             class="text-light-blue text-sm cursor-pointer pt-2"
             @click="show = !show"
@@ -45,7 +45,7 @@
           </label>
         </div>
 
-        <div class="password-row flex flex-col-reverse justify-evenly mb-6">
+        <div class="password-row flex flex-col-reverse mb-6">
           <p v-if="password.length >= 1" class="pt-2 text-sm">
             Not sure what you entered?
             <span
