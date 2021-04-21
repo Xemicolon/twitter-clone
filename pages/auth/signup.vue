@@ -15,10 +15,10 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .home-enter-active,
 .home-leave-active {
-  transition: opacity 0.5s;
+  transition: opacity 0.3s;
 }
 .home-enter,
 .home-leave-active {

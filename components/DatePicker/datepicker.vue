@@ -93,7 +93,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 select {
   padding: 0.35rem 0;
 }
