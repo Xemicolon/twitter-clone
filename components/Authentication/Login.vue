@@ -18,7 +18,10 @@
     <div class="form mt-4">
       <form class="w-full" @submit.prevent="login">
         <div class="email-row flex flex-col-reverse justify-evenly mb-5">
-          <p class="text-light-blue cursor-pointer pt-2" @click="show = !show">
+          <p
+            class="text-light-blue text-sm cursor-pointer pt-2"
+            @click="show = !show"
+          >
             {{ show ? 'Use username' : 'Use email' }}
           </p>
           <input
@@ -46,7 +49,7 @@
           <p v-if="password.length >= 1" class="pt-2 text-sm">
             Not sure what you entered?
             <span
-              class="text-light-blue cursor-pointer"
+              class="text-light-blue font-semibold cursor-pointer"
               @click="showPassword"
               >{{ pwdTxt }}</span
             >
