@@ -50,8 +50,10 @@
         <div class="password-row flex flex-col-reverse justify-evenly mb-6">
           <p class="pt-2 text-sm">
             Not sure what you entered?
-            <span class="text-light-blue cursor-pointer" @click="showPassword"
-              >Show password</span
+            <span
+              class="text-light-blue cursor-pointer"
+              @click="showPassword"
+              >{{ pwdTxt }}</span
             >
           </p>
           <input
@@ -127,6 +129,7 @@ export default {
         year: 0,
         day: 0,
       },
+      pwdTxt: 'Show password',
     }
   },
   computed: {
@@ -166,8 +169,10 @@ export default {
       const pwd = document.getElementById('password')
       if (pwd.type === 'password') {
         pwd.type = 'text'
+        this.pwdTxt = 'Hide password'
       } else {
         pwd.type = 'password'
+        this.pwdTxt = 'Show password'
       }
     },
     updateMonth() {
