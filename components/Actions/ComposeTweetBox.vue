@@ -16,12 +16,16 @@
       </div>
 
       <div class="w-full grid">
-        <div
+        <textarea
+          id="tweet-input"
+          v-model="tweet"
           style="max-height: 120px; overflow-y: auto"
-          class="tweet-input focus:outline-none text-sm text-white cursor-text h-20 bordr border-faded-gray rounded-md"
-          contenteditable="true"
+          name="twee-input"
+          class="tweet-input bg-transparent focus:outline-none text-sm text-white cursor-text h-20 border border-faded-gray rounded-md"
           placeholder="What's happening?"
-        ></div>
+          cols="30"
+          rows="10"
+        ></textarea>
         <div class="flex flex-row justify-between items-center mt-3">
           <p class="text-light-blue hover:text-dark-blue">
             <svg
@@ -38,10 +42,18 @@
             </svg>
           </p>
           <div class="flex items-center justify-between">
-            <p class="text-white pr-4">1/24</p>
+            <p
+              :class="
+                maxchar - tweet.length < 0 ? 'text-red-600' : 'text-white'
+              "
+              class="pr-2 text-sm"
+            >
+              {{ maxchar - tweet.length }}
+            </p>
             <button
+              v-if="maxchar - tweet.length >= 0"
               type="button"
-              class="rounded-full bg-light-blue text-gray-200 w-20 py-1"
+              class="rounded-full bg-light-blue hover:bg-dark-blue text-gray-200 w-20 py-1"
             >
               Tweet
             </button>
@@ -61,8 +73,11 @@ export default {
   data() {
     return {
       show: false,
+      maxchar: 280,
+      tweet: '',
     }
   },
+  computed: {},
   mounted() {
     eventBus.$on('open-compose-tweet-box', (data) => {
       this.show = data
@@ -72,22 +87,7 @@ export default {
       this.show = data
     })
   },
-  methods: {
-    contentplaceholderfocus(e) {
-      console.log(e)
-      if (e.type === 'focus') {
-        e.target.textContent = ''
-      }
-      // const tweetInput = document.querySelector('.tweet-input')
-    },
-    contentplaceholderblur(e) {
-      console.log(e)
-      if (e.type === 'blur') {
-        e.target.textContent = "What's happening?"
-      }
-      // const tweetInput = document.querySelector('.tweet-input')
-    },
-  },
+  methods: {},
 }
 </script>
 
@@ -101,8 +101,11 @@ export default {
   opacity: 0;
 }
 
-[contentEditable='true']:empty:not(:focus):before {
-  content: attr(placeholder);
-  color: lightgray;
+textarea:focus::placeholder {
+  color: transparent;
+}
+
+textarea {
+  padding: 10px;
 }
 </style>
