@@ -93,7 +93,9 @@
         </button>
       </form>
       <div class="form-footer text-center text-sm mt-8">
-        <nuxt-link to="/auth/login" class="text-deep-blue hover:underline"
+        <nuxt-link
+          to="/auth/login"
+          class="text-deep-blue hover:underline font-bold"
           >Log in to Twitter</nuxt-link
         >
       </div>
