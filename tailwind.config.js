@@ -20,6 +20,7 @@ module.exports = {
         'deep-blue': '#1b95e0',
         'light-blue': '#1da1f2',
         'faded-blue': '#1da1f21a',
+        'faded-light-blue': '#3391ff47',
         'faded-gray': '#2f3336',
         'light-gray': '#6e767d',
       },

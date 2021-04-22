@@ -4,7 +4,7 @@
   >
     <nuxt-link
       to="/home"
-      class="hover:text-dark-blue rounded-full b cursor-pointer w-full flex place-items-center h-full"
+      class="text-light-gray hover:text-dark-blue cursor-pointer w-full flex place-items-center h-full"
     >
       <svg
         viewBox="0 0 24 24"
@@ -57,7 +57,8 @@
         </g>
       </svg>
     </p>
-    <p
+    <nuxt-link
+      to="/profile"
       class="text-light-gray hover:text-dark-blue cursor-pointer w-full flex place-items-center h-full"
     >
       <svg
@@ -74,7 +75,7 @@
           ></path>
         </g>
       </svg>
-    </p>
+    </nuxt-link>
     <p
       class="text-light-gray hover:text-dark-blue cursor-pointer w-full flex place-items-center h-full"
     >
@@ -105,6 +106,6 @@ export default {}
 
 <style scoped>
 .nuxt-link-active {
-  @apply text-light-blue;
+  @apply text-light-blue bg-faded-light-blue;
 }
 </style>
