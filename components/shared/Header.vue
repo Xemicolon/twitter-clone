@@ -1,5 +1,7 @@
 <template>
-  <div class="bg-black py-4 px-2">
-    <p class="text-white place-self-center">Latest tweets</p>
+  <div class="bg-black border-b border-faded-gray sticky z-10 flex top-0 p-3">
+    <p class="text-white place-self-center font-semibold text-xl">
+      Latest tweets
+    </p>
   </div>
 </template>
