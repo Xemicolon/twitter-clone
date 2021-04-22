@@ -53,7 +53,8 @@
             <button
               v-if="maxchar - tweet.length >= 0"
               type="button"
-              class="rounded-full bg-light-blue hover:bg-dark-blue text-gray-200 w-20 py-1"
+              class="rounded-full bg-light-blue hover:bg-dark-blue focus:outline-none text-gray-200 w-20 py-1"
+              @click="sendTweet"
             >
               Tweet
             </button>
@@ -87,7 +88,11 @@ export default {
       this.show = data
     })
   },
-  methods: {},
+  methods: {
+    sendTweet() {
+      alert(this.tweet)
+    },
+  },
 }
 </script>
 
