@@ -1,6 +1,7 @@
 <template>
   <div
-    class="header flex items-center justify-between border-b border-faded-gray sticky z-10 top-0 p-3"
+    style="z-index: 200"
+    class="bg-black header flex items-center justify-between border-b border-faded-gray sticky top-0 p-3"
   >
     <p class="place-self-center font-semibold text-xl">Latest tweets</p>
 

@@ -105,8 +105,8 @@
     <div
       id="extra-menu"
       :class="show ? 'grid grid-flow-row-dense' : 'hidden'"
-      style="top: -155px; right: 10px; max-width: 200px"
-      class="extra-menu text-white absolute right-0 border border-faded-gray rounded-md text-md"
+      style="right: 10px; max-width: 200px; z-index: 350; top: -108px"
+      class="extra-menu bg-black text-white absolute right-0 border border-faded-gray rounded-md text-md"
     >
       <nuxt-link
         to="/profile"
@@ -129,35 +129,6 @@
         </svg>
         Profile
       </nuxt-link>
-
-      <p
-        class="text-light-gray hover:text-dark-blue cursor-pointer flex p-3 border-b border-faded-gray"
-        @click="changetheme"
-      >
-        <svg
-          viewBox="0 0 512 512"
-          height="22px"
-          width="22px"
-          class="mr-2"
-          xmlns="http://www.w3.org/2000/svg"
-          fill="currentColor"
-        >
-          <g>
-            <path
-              fill="currentColor"
-              d="M320 32L304 0l-16 32-32 16 32 16 16 32 16-32 32-16zm138.7 149.3L432 128l-26.7 53.3L352 208l53.3 26.7L432 288l26.7-53.3L512 208z"
-              data-darkreader-inline-fill=""
-              style="--darkreader-inline-fill: currentColor"
-            ></path>
-            <path
-              fill="currentColor"
-              d="M332.2 426.4c8.1-1.6 13.9 8 8.6 14.5a191.18 191.18 0 0 1-149 71.1C85.8 512 0 426 0 320c0-120 108.7-210.6 227-188.8 8.2 1.6 10.1 12.6 2.8 16.7a150.3 150.3 0 0 0-76.1 130.8c0 94 85.4 165.4 178.5 147.7z"
-              data-darkreader-inline-fill=""
-              style="--darkreader-inline-fill: currentColor"
-            ></path>
-          </g></svg
-        >Change theme
-      </p>
 
       <p class="text-light-gray hover:text-dark-blue cursor-pointer flex p-3">
         <svg
@@ -201,31 +172,6 @@ export default {
     hideextramenu() {
       document.querySelector('#extra-menu').classList.add('hidden')
       this.show = false
-    },
-    changetheme() {
-      console.log(
-        document.querySelector('.layout').classList.contains('bg-black')
-      )
-
-      if (document.querySelector('.layout').classList.contains('bg-black')) {
-        document.querySelector('.layout').classList.remove('bg-black')
-        document.querySelector('.layout').classList.remove('text-white')
-        document.querySelector('.layout').classList.add('bg-white')
-        document.querySelector('.layout').classList.add('text-black')
-        document.querySelector('.nav').classList.remove('bg-black')
-        document.querySelector('.nav').classList.add('bg-white')
-        document.querySelector('.header').classList.remove('bg-black')
-        document.querySelector('.header').classList.add('bg-white')
-      } else {
-        document.querySelector('.layout').classList.remove('bg-white')
-        document.querySelector('.layout').classList.remove('text-black')
-        document.querySelector('.layout').classList.add('bg-black')
-        document.querySelector('.layout').classList.add('text-white')
-        document.querySelector('.nav').classList.remove('bg-white')
-        document.querySelector('.nav').classList.add('bg-black')
-        document.querySelector('.header').classList.remove('bg-white')
-        document.querySelector('.header').classList.add('bg-black')
-      }
     },
   },
 }

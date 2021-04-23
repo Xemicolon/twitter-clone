@@ -1,8 +1,8 @@
 <template>
   <div
     v-if="show"
-    style="z-index: 2; top: 57px"
-    class="send-tweet sticky border-b border-faded-gray w-full p-3 mt-2"
+    style="z-index: 100; top: 57px"
+    class="sticky bg-black border-b border-faded-gray w-full p-3 mt-2"
   >
     <div class="flex flex-row">
       <div class="w-auto mr-4">
