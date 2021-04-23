@@ -1,10 +1,8 @@
 <template>
   <div
-    class="flex items-center justify-between bg-black border-b border-faded-gray sticky z-10 top-0 p-3"
+    class="header bg-black flex items-center justify-between border-b border-faded-gray sticky z-10 top-0 p-3"
   >
-    <p class="text-white place-self-center font-semibold text-xl">
-      Latest tweets
-    </p>
+    <p class="place-self-center font-semibold text-xl">Latest tweets</p>
 
     <p
       v-if="show"

@@ -1,10 +1,11 @@
 <template>
   <div
-    class="h-16 grid grid-cols-5 text-white bg-black place-items-center sticky z-20 bottom-0 border-t border-faded-gray"
+    class="nav h-16 grid grid-cols-5 bg-black place-items-center sticky z-30 bottom-0 border-t border-faded-gray"
   >
     <nuxt-link
       to="/home"
       class="text-light-gray hover:text-dark-blue cursor-pointer w-full flex place-items-center h-full"
+      @click.native="hideextramenu"
     >
       <svg
         viewBox="0 0 24 24"
@@ -21,6 +22,7 @@
         </g>
       </svg>
     </nuxt-link>
+
     <p
       class="text-light-gray hover:text-dark-blue cursor-pointer w-full flex place-items-center h-full"
     >
@@ -39,6 +41,25 @@
         </g>
       </svg>
     </p>
+
+    <p
+      class="text-light-gray hover:text-dark-blue cursor-pointer w-full flex place-items-center h-full"
+    >
+      <svg
+        viewBox="0 0 24 24"
+        height="26px"
+        width="26px"
+        class="w-full"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="currentColor"
+      >
+        <path d="M0 0h24v24H0V0z" fill="none" />
+        <path
+          d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.9 2 2 2zm6-6v-5c0-3.07-1.63-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.64 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2zm-2 1H8v-6c0-2.48 1.51-4.5 4-4.5s4 2.02 4 4.5v6z"
+        />
+      </svg>
+    </p>
+
     <p
       class="text-light-gray hover:text-dark-blue cursor-pointer w-full flex place-items-center h-full"
     >
@@ -57,27 +78,10 @@
         </g>
       </svg>
     </p>
-    <nuxt-link
-      to="/profile"
-      class="text-light-gray hover:text-dark-blue cursor-pointer w-full flex place-items-center h-full"
-    >
-      <svg
-        viewBox="0 0 24 24"
-        height="26px"
-        width="26px"
-        class="w-full"
-        xmlns="http://www.w3.org/2000/svg"
-        fill="currentColor"
-      >
-        <g>
-          <path
-            d="M12 11.816c1.355 0 2.872-.15 3.84-1.256.814-.93 1.078-2.368.806-4.392-.38-2.825-2.117-4.512-4.646-4.512S7.734 3.343 7.354 6.17c-.272 2.022-.008 3.46.806 4.39.968 1.107 2.485 1.256 3.84 1.256zM8.84 6.368c.162-1.2.787-3.212 3.16-3.212s2.998 2.013 3.16 3.212c.207 1.55.057 2.627-.45 3.205-.455.52-1.266.743-2.71.743s-2.255-.223-2.71-.743c-.507-.578-.657-1.656-.45-3.205zm11.44 12.868c-.877-3.526-4.282-5.99-8.28-5.99s-7.403 2.464-8.28 5.99c-.172.692-.028 1.4.395 1.94.408.52 1.04.82 1.733.82h12.304c.693 0 1.325-.3 1.733-.82.424-.54.567-1.247.394-1.94zm-1.576 1.016c-.126.16-.316.246-.552.246H5.848c-.235 0-.426-.085-.552-.246-.137-.174-.18-.412-.12-.654.71-2.855 3.517-4.85 6.824-4.85s6.114 1.994 6.824 4.85c.06.242.017.48-.12.654z"
-          ></path>
-        </g>
-      </svg>
-    </nuxt-link>
+
     <p
       class="text-light-gray hover:text-dark-blue cursor-pointer w-full flex place-items-center h-full"
+      @click="show = !show"
     >
       <svg
         viewBox="0 0 24 24"
@@ -97,11 +101,133 @@
         </g>
       </svg>
     </p>
+
+    <div
+      id="extra-menu"
+      :class="show ? 'grid grid-flow-row-dense' : 'hidden'"
+      style="top: -155px; right: 10px; max-width: 200px"
+      class="extra-menu text-white absolute right-0 bg-black border border-faded-gray rounded-md text-md"
+    >
+      <nuxt-link
+        to="/profile"
+        class="text-light-gray hover:text-dark-blue cursor-pointer flex p-3 border-b border-faded-gray"
+        @click.native="hideextramenu"
+      >
+        <svg
+          viewBox="0 0 24 24"
+          height="22px"
+          width="22px"
+          class="mr-2"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="currentColor"
+        >
+          <g>
+            <path
+              d="M12 11.816c1.355 0 2.872-.15 3.84-1.256.814-.93 1.078-2.368.806-4.392-.38-2.825-2.117-4.512-4.646-4.512S7.734 3.343 7.354 6.17c-.272 2.022-.008 3.46.806 4.39.968 1.107 2.485 1.256 3.84 1.256zM8.84 6.368c.162-1.2.787-3.212 3.16-3.212s2.998 2.013 3.16 3.212c.207 1.55.057 2.627-.45 3.205-.455.52-1.266.743-2.71.743s-2.255-.223-2.71-.743c-.507-.578-.657-1.656-.45-3.205zm11.44 12.868c-.877-3.526-4.282-5.99-8.28-5.99s-7.403 2.464-8.28 5.99c-.172.692-.028 1.4.395 1.94.408.52 1.04.82 1.733.82h12.304c.693 0 1.325-.3 1.733-.82.424-.54.567-1.247.394-1.94zm-1.576 1.016c-.126.16-.316.246-.552.246H5.848c-.235 0-.426-.085-.552-.246-.137-.174-.18-.412-.12-.654.71-2.855 3.517-4.85 6.824-4.85s6.114 1.994 6.824 4.85c.06.242.017.48-.12.654z"
+            ></path>
+          </g>
+        </svg>
+        Profile
+      </nuxt-link>
+
+      <p
+        class="text-light-gray hover:text-dark-blue cursor-pointer flex p-3 border-b border-faded-gray"
+        @click="changetheme"
+      >
+        <svg
+          viewBox="0 0 512 512"
+          height="22px"
+          width="22px"
+          class="mr-2"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="currentColor"
+        >
+          <g>
+            <path
+              fill="currentColor"
+              d="M320 32L304 0l-16 32-32 16 32 16 16 32 16-32 32-16zm138.7 149.3L432 128l-26.7 53.3L352 208l53.3 26.7L432 288l26.7-53.3L512 208z"
+              data-darkreader-inline-fill=""
+              style="--darkreader-inline-fill: currentColor"
+            ></path>
+            <path
+              fill="currentColor"
+              d="M332.2 426.4c8.1-1.6 13.9 8 8.6 14.5a191.18 191.18 0 0 1-149 71.1C85.8 512 0 426 0 320c0-120 108.7-210.6 227-188.8 8.2 1.6 10.1 12.6 2.8 16.7a150.3 150.3 0 0 0-76.1 130.8c0 94 85.4 165.4 178.5 147.7z"
+              data-darkreader-inline-fill=""
+              style="--darkreader-inline-fill: currentColor"
+            ></path>
+          </g></svg
+        >Change theme
+      </p>
+
+      <p class="text-light-gray hover:text-dark-blue cursor-pointer flex p-3">
+        <svg
+          viewBox="0 0 24 24"
+          height="22px"
+          width="22px"
+          class="mr-2"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="currentColor"
+        >
+          <g><path d="M0,0h24v24H0V0z" fill="none" /></g>
+          <g>
+            <path
+              d="M17,8l-1.41,1.41L17.17,11H9v2h8.17l-1.58,1.58L17,16l4-4L17,8z M5,5h7V3H5C3.9,3,3,3.9,3,5v14c0,1.1,0.9,2,2,2h7v-2H5V5z"
+            />
+          </g>
+        </svg>
+        Logout @xemicolon
+      </p>
+    </div>
   </div>
 </template>
 
 <script>
-export default {}
+export default {
+  data() {
+    return {
+      show: false,
+    }
+  },
+  methods: {
+    showextramenu() {
+      if (document.querySelector('#extra-menu').classList.contains('hidden')) {
+        document.querySelector('#extra-menu').classList.remove('hidden')
+        this.show = true
+      } else {
+        document.querySelector('#extra-menu').classList.add('hidden')
+        this.show = false
+      }
+    },
+    hideextramenu() {
+      document.querySelector('#extra-menu').classList.add('hidden')
+      this.show = false
+    },
+    changetheme() {
+      console.log(
+        document.querySelector('.layout').classList.contains('bg-black')
+      )
+
+      if (document.querySelector('.layout').classList.contains('bg-black')) {
+        document.querySelector('.layout').classList.remove('bg-black')
+        document.querySelector('.layout').classList.remove('text-white')
+        document.querySelector('.layout').classList.add('bg-white')
+        document.querySelector('.layout').classList.add('text-black')
+        document.querySelector('.nav').classList.remove('bg-black')
+        document.querySelector('.nav').classList.add('bg-white')
+        document.querySelector('.header').classList.add('bg-white')
+      } else {
+        document.querySelector('.layout').classList.remove('bg-white')
+        document.querySelector('.layout').classList.remove('text-black')
+        document.querySelector('.layout').classList.add('bg-black')
+        document.querySelector('.layout').classList.add('text-white')
+        document.querySelector('.nav').classList.remove('bg-white')
+        document.querySelector('.nav').classList.add('bg-black')
+        document.querySelector('.header').classList.remove('bg-white')
+        document.querySelector('.header').classList.add('bg-black')
+      }
+    },
+  },
+}
 </script>
 
 <style scoped>

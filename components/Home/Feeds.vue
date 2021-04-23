@@ -1,5 +1,5 @@
 <template>
-  <div class="text-white p-3">
+  <div class="p-3">
     <p>Feeds!! :)</p>
     <p>Feeds!! :)</p>
     <p>Feeds!! :)</p>

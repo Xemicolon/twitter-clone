@@ -23,6 +23,8 @@ module.exports = {
         'faded-light-blue': '#3391ff47',
         'faded-gray': '#2f3336',
         'light-gray': '#6e767d',
+        'divider-black': '#181a1b',
+        'divider-light-black': '#6e767d3b',
       },
     },
   },
