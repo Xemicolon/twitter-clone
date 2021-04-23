@@ -2,7 +2,7 @@
   <div
     v-if="show"
     style="z-index: 2; top: 57px"
-    class="send-tweet bg-black sticky border-b border-faded-gray w-full p-3 mt-2"
+    class="send-tweet sticky border-b border-faded-gray w-full p-3 mt-2"
   >
     <div class="flex flex-row">
       <div class="w-auto mr-4">

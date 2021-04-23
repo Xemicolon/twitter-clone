@@ -106,7 +106,7 @@
       id="extra-menu"
       :class="show ? 'grid grid-flow-row-dense' : 'hidden'"
       style="top: -155px; right: 10px; max-width: 200px"
-      class="extra-menu text-white absolute right-0 bg-black border border-faded-gray rounded-md text-md"
+      class="extra-menu text-white absolute right-0 border border-faded-gray rounded-md text-md"
     >
       <nuxt-link
         to="/profile"
@@ -214,6 +214,7 @@ export default {
         document.querySelector('.layout').classList.add('text-black')
         document.querySelector('.nav').classList.remove('bg-black')
         document.querySelector('.nav').classList.add('bg-white')
+        document.querySelector('.header').classList.remove('bg-black')
         document.querySelector('.header').classList.add('bg-white')
       } else {
         document.querySelector('.layout').classList.remove('bg-white')
