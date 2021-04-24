@@ -1,9 +1,10 @@
 <template>
   <div class="w-full">
+    <reply-tweet v-if="show" />
     <div
-      v-for="(i, id) in 30"
-      :key="id"
-      class="flex flex-row border-b border-faded-gray pb-3 p-3"
+      v-for="(i, index) of 30"
+      :key="index"
+      class="flex flex-row border-b border-faded-gray pb-3 p-3 hover:bg-divider-light-black cursor-pointer"
     >
       <div class="w-auto mr-4">
         <div class="user-img flex-none w-10 h-10 relative rounded-full">
@@ -25,7 +26,10 @@
           <p>Damn man. So smooth.</p>
         </div>
         <div class="flex flex-row justify-between w-full mt-3">
-          <p class="text-light-gray hover:text-light-blue flex">
+          <p
+            class="text-light-gray hover:text-light-blue flex cursor-pointer"
+            @click="showreplytweetbox"
+          >
             <svg
               viewBox="0 0 24 24"
               height="22px"
@@ -43,7 +47,11 @@
             <span class="font-semibold text-sm">1</span>
           </p>
 
-          <p class="text-light-gray hover:text-light-blue flex">
+          <p
+            :class="{ 'text-green-600': index === retweetId }"
+            class="retweet text-light-gray hover:text-light-blue flex cursor-pointer"
+            @click="retweetId = index"
+          >
             <svg
               viewBox="0 0 24 24"
               height="22px"
@@ -61,7 +69,7 @@
             <span class="font-semibold text-sm">5</span>
           </p>
 
-          <p class="text-light-gray hover:text-light-blue flex">
+          <p class="text-light-gray hover:text-light-blue flex cursor-pointer">
             <svg
               viewBox="0 0 24 24"
               height="22px"
@@ -79,7 +87,7 @@
             <span class="font-semibold text-sm">8</span>
           </p>
 
-          <p class="text-light-gray hover:text-red-600">
+          <p class="text-light-gray hover:text-red-600 cursor-pointer">
             <svg
               viewBox="0 0 24 24"
               height="22px"
@@ -100,3 +108,30 @@
     </div>
   </div>
 </template>
+
+<script>
+import { eventBus } from '~/utils/bus'
+import ReplyTweet from '~/components/Actions/ReplyTweet'
+export default {
+  components: { ReplyTweet },
+  data() {
+    return {
+      show: false,
+      retweetId: undefined,
+    }
+  },
+  mounted() {
+    eventBus.$on('close-reply-tweet-box', (data) => {
+      this.show = data
+    })
+    eventBus.$on('close-retweet-box', (data) => {
+      this.showRetweetBox = data
+    })
+  },
+  methods: {
+    showreplytweetbox() {
+      this.show = true
+    },
+  },
+}
+</script>
