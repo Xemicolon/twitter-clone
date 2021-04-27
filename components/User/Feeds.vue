@@ -27,7 +27,7 @@
         </div>
         <div class="flex flex-row justify-between w-full mt-3">
           <p
-            class="text-light-gray hover:text-light-blue flex cursor-pointer"
+            class="text-light-gray flex cursor-pointer"
             @click="showreplytweetbox"
           >
             <svg
@@ -48,8 +48,11 @@
           </p>
 
           <p
-            :class="{ 'text-green-600': index === retweetId }"
-            class="retweet text-light-gray hover:text-light-blue flex cursor-pointer"
+            :class="{
+              'text-green-600': index === retweetId,
+              'text-light-gray': index !== retweetId,
+            }"
+            class="retweet flex cursor-pointer"
             @click="retweetId = index"
           >
             <svg
@@ -69,7 +72,7 @@
             <span class="font-semibold text-sm">5</span>
           </p>
 
-          <p class="text-light-gray hover:text-light-blue flex cursor-pointer">
+          <p class="text-light-gray flex cursor-pointer">
             <svg
               viewBox="0 0 24 24"
               height="22px"
@@ -87,7 +90,10 @@
             <span class="font-semibold text-sm">8</span>
           </p>
 
-          <p class="text-light-gray hover:text-red-600 cursor-pointer">
+          <p
+            class="text-light-gray hover:text-red-600 cursor-pointer"
+            @click="deleteTweet"
+          >
             <svg
               viewBox="0 0 24 24"
               height="22px"
@@ -131,6 +137,9 @@ export default {
   methods: {
     showreplytweetbox() {
       this.show = true
+    },
+    deleteTweet() {
+      alert('delete button')
     },
   },
 }

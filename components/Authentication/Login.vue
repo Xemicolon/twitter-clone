@@ -109,12 +109,7 @@ export default {
   },
   methods: {
     login() {
-      const user = {
-        email: this.email,
-        username: this.username,
-        password: this.password,
-      }
-      alert(JSON.stringify(user))
+      this.$router.push('/home')
     },
     showPassword() {
       const pwd = document.getElementById('password')

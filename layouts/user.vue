@@ -1,8 +1,18 @@
 <template>
   <div class="layout bg-black text-white">
     <Nuxt />
+    <Navigation />
   </div>
 </template>
+
+<script>
+import Navigation from '~/components/shared/Navigation.vue'
+export default {
+  components: {
+    Navigation,
+  },
+}
+</script>
 
 <style>
 html {

@@ -1,0 +1,22 @@
+<template>
+  <div>
+    <Header>
+      <template #heading>
+        <div>
+          <p class="place-self-center font-semibold text-xl">Notifications</p>
+        </div>
+      </template>
+    </Header>
+    <Notifications />
+  </div>
+</template>
+
+<script>
+import Notifications from '~/components/User/Notifications'
+import Header from '~/components/shared/Header.vue'
+
+export default {
+  components: { Notifications, Header },
+  layout: 'user',
+}
+</script>

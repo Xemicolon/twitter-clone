@@ -1,7 +1,7 @@
 <template>
   <div
-    style="z-index: 470; bottom: 70px; right: 0; left: 0"
-    class="bg-gray-900 border-b border-faded-gray rounded-md w-11/12 mx-auto fixed mt-2"
+    style="z-index: 470; bottom: 63px; right: 0; left: 0"
+    class="bg-gray-900 border-b border-faded-gray rounded-md w-full mx-auto fixed"
   >
     <div
       class="w-full border-b border-dark-blue pb-2 flex place-items-center p-3"
@@ -28,8 +28,8 @@
 
     <div class="flex flex-row p-3">
       <div
-        style="min-height: 105px; width: 2px; margin-left: 19px"
-        class="bg-light-gray fixed rotate-45"
+        style="min-height: 55px; width: 2px; margin-left: 19px; top: 100px"
+        class="bg-light-gray absolute rotate-45"
       ></div>
 
       <div class="w-auto mr-4">
