@@ -113,8 +113,122 @@
         </div>
       </div>
     </div>
-    <div class="tabs">
-      <div class="grid grid-flow-col-dense"></div>
+    <div class="tabs mt-6">
+      <div
+        class="flex flex-row justify-between place-items-center text-light-gray font-semibold border-b border-faded-gray h-10"
+      >
+        <p
+          :class="{
+            'text-light-blue': tweets,
+            'border-b': tweets,
+            'border-light-blue': tweets,
+          }"
+          class="hover:text-dark-blue h-full cursor-pointer px-3"
+          @click="display('tweets')"
+        >
+          Tweets
+        </p>
+        <p
+          :class="{
+            'text-light-blue': tweetsandreplies,
+            'border-b': tweetsandreplies,
+            'border-light-blue': tweetsandreplies,
+          }"
+          class="hover:text-dark-blue h-full cursor-pointer px-3"
+          @click="display('tweetsandreplies')"
+        >
+          Tweets & replies
+        </p>
+        <p
+          :class="{
+            'text-light-blue': media,
+            'border-b': media,
+            'border-light-blue': media,
+          }"
+          class="hover:text-dark-blue h-full cursor-pointer px-3"
+          @click="display('media')"
+        >
+          Media
+        </p>
+        <p
+          :class="{
+            'text-light-blue': likes,
+            'border-b': likes,
+            'border-light-blue': likes,
+          }"
+          class="hover:text-dark-blue h-full cursor-pointer px-3"
+          @click="display('likes')"
+        >
+          Likes
+        </p>
+      </div>
     </div>
+    <Tweets v-if="tweets" />
+    <tweets-replies v-if="tweetsandreplies" />
+    <media v-if="media" />
+    <likes v-if="likes" />
   </div>
 </template>
+
+<script>
+import Tweets from '~/components/User/Tweets/Tweets'
+import TweetsReplies from '~/components/User/TweetsReplies/TweetsReplies'
+import Media from '~/components/User/Media/Media'
+import Likes from '~/components/User/Likes/Likes'
+export default {
+  components: {
+    Tweets,
+    TweetsReplies,
+    Media,
+    Likes,
+  },
+  data() {
+    return {
+      tweets: true,
+      tweetsandreplies: false,
+      media: false,
+      likes: false,
+    }
+  },
+  methods: {
+    display(view) {
+      if (view === 'tweets') {
+        this.tweets = true
+        this.tweetsandreplies = false
+        this.media = false
+        this.likes = false
+        return
+      }
+
+      if (view === 'tweetsandreplies') {
+        this.tweets = false
+        this.tweetsandreplies = true
+        this.media = false
+        this.likes = false
+        return
+      }
+
+      if (view === 'media') {
+        this.tweets = false
+        this.tweetsandreplies = false
+        this.media = true
+        this.likes = false
+        return
+      }
+
+      if (view === 'likes') {
+        this.tweets = false
+        this.tweetsandreplies = false
+        this.media = false
+        this.likes = true
+      }
+    },
+  },
+}
+</script>
+
+<style scoped>
+.p-active {
+  @apply text-light-blue bg-faded-light-blue;
+}
+</style>

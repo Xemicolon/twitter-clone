@@ -113,7 +113,7 @@
     >
       <nuxt-link
         to="/user/profile"
-        class="text-light-gray hover:text-dark-blue cursor-pointer flex p-3 border-b border-faded-gray flex"
+        class="text-light-gray hover:text-dark-blue cursor-pointer flex p-3 border-b border-faded-gray"
         @click.native="hideextramenu"
       >
         <svg

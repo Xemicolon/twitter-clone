@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Header class="justify-between">
+    <Header class="justify-between" style="height: 10vh">
       <template #heading>
         <div>
           <p class="place-self-center font-semibold text-xl">Messages</p>

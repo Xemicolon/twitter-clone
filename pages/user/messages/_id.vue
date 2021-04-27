@@ -3,7 +3,7 @@
     <message-header />
     <Message class="px-3" />
     <div
-      class="bg-black input w-full sticky bottom-0 flex flex-row items-center h-16 px-3"
+      class="bg-black input w-full sticky bottom-0 flex flex-row items-center h-16 px-3 reply-msg"
     >
       <div class="icons">
         <p
@@ -30,7 +30,7 @@
         <input
           type="text"
           placeholder="Start a new message"
-          class="border-0 rounded-full px-3 py-1 text-sm focus:outline-none w-full bg-faded-gray mr-3"
+          class="border-0 rounded-full px-3 py-1 text-sm focus:outline-none w-full bg-faded-gray mr-3 input-msg"
         />
         <p
           class="text-light-blue hover:text-dark-blue cursor-pointer flex place-items-center text-center"
@@ -66,3 +66,5 @@ export default {
   },
 }
 </script>
+
+<style scoped></style>

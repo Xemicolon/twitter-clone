@@ -1,5 +1,5 @@
 <template>
-  <div class="min-h-screen">
+  <div class="min-h-screen messages">
     <div
       v-for="(i, index) of 30"
       :key="index"
@@ -42,3 +42,13 @@ export default {
   },
 }
 </script>
+
+<style scoped>
+.messages {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+.messages::-webkit-scrollbar {
+  display: none; /* Chrome, Safari and Opera */
+}
+</style>
