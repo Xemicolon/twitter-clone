@@ -1,10 +1,17 @@
 <template>
   <div
-    style="z-index: 470; bottom: 63px; right: 0; left: 0"
-    class="bg-gray-900 border-b border-faded-gray rounded-md w-full mx-auto fixed"
+    style="
+      z-index: 470;
+      bottom: 63px;
+      right: 0;
+      left: 0;
+      max-width: 500px;
+      background-color: #131212;
+    "
+    class="border-b border-faded-gray rounded-md w-full mx-auto fixed"
   >
     <div
-      class="w-full border-b border-dark-blue pb-2 flex place-items-center p-3"
+      class="w-full border-b border-gray-700 pb-2 flex place-items-center p-3"
     >
       <p
         class="text-light-blue hover:text-dark-blue mr-5 w-14 cursor-pointer"
@@ -78,7 +85,9 @@
           cols="30"
           rows="10"
         ></textarea>
-        <div class="flex flex-row justify-between items-center mt-3">
+        <div
+          class="flex flex-row justify-between items-center mt-3 border-t border-gray-700 pt-3"
+        >
           <p class="text-light-blue hover:text-dark-blue">
             <svg
               xmlns="http://www.w3.org/2000/svg"

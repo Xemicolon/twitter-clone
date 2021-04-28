@@ -1,5 +1,8 @@
 <template>
-  <div>
+  <div
+    style="max-width: 500px"
+    class="min-h-screen mx-auto bg-black border-l border-r border-faded-gray"
+  >
     <Header
       style="z-index: 200"
       class="bg-black header flex flex-row justify-between items-center border-b border-faded-gray sticky top-0 p-3"

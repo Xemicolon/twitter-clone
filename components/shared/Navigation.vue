@@ -1,6 +1,7 @@
 <template>
   <div
-    class="nav h-16 grid grid-cols-5 bg-black place-items-center sticky z-30 bottom-0 border-t border-faded-gray"
+    style="max-width: 500px"
+    class="nav h-16 mx-auto grid grid-cols-5 bg-black place-items-center sticky z-30 bottom-0 border border-faded-gray"
   >
     <nuxt-link
       to="/home"
@@ -108,7 +109,7 @@
     <div
       id="extra-menu"
       :class="show ? 'grid grid-flow-row-dense' : 'hidden'"
-      style="right: 10px; max-width: 200px; z-index: 350; top: -108px"
+      style="right: 10px; max-width: 200px; z-index: 500; top: -108px"
       class="extra-menu bg-black text-white absolute right-0 border border-faded-gray rounded-md text-md"
     >
       <nuxt-link

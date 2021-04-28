@@ -113,7 +113,7 @@
         </div>
       </div>
     </div>
-    <div class="tabs mt-3 bg-black sticky top-0" style="z-index: 499">
+    <div class="tabs mt-3 bg-black sticky top-0" style="z-index: 1">
       <div
         class="flex flex-row justify-between place-items-center text-light-gray font-semibold border-b border-faded-gray h-10"
       >

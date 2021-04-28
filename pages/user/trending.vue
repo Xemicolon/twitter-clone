@@ -1,5 +1,8 @@
 <template>
-  <div>
+  <div
+    style="max-width: 500px"
+    class="min-h-screen mx-auto bg-black border-l border-r border-faded-gray"
+  >
     <Trending />
   </div>
 </template>
