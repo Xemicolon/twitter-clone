@@ -113,7 +113,7 @@
         </div>
       </div>
     </div>
-    <div class="tabs mt-6">
+    <div class="tabs mt-3 bg-black sticky top-0" style="z-index: 499">
       <div
         class="flex flex-row justify-between place-items-center text-light-gray font-semibold border-b border-faded-gray h-10"
       >
@@ -123,7 +123,7 @@
             'border-b': tweets,
             'border-light-blue': tweets,
           }"
-          class="hover:text-dark-blue h-full cursor-pointer px-3"
+          class="hover:text-dark-blue h-full cursor-pointer px-3 flex items-center"
           @click="display('tweets')"
         >
           Tweets
@@ -134,7 +134,7 @@
             'border-b': tweetsandreplies,
             'border-light-blue': tweetsandreplies,
           }"
-          class="hover:text-dark-blue h-full cursor-pointer px-3"
+          class="hover:text-dark-blue h-full cursor-pointer px-3 flex items-center"
           @click="display('tweetsandreplies')"
         >
           Tweets & replies
@@ -145,7 +145,7 @@
             'border-b': media,
             'border-light-blue': media,
           }"
-          class="hover:text-dark-blue h-full cursor-pointer px-3"
+          class="hover:text-dark-blue h-full cursor-pointer px-3 flex items-center"
           @click="display('media')"
         >
           Media
@@ -156,7 +156,7 @@
             'border-b': likes,
             'border-light-blue': likes,
           }"
-          class="hover:text-dark-blue h-full cursor-pointer px-3"
+          class="hover:text-dark-blue h-full cursor-pointer px-3 flex items-center"
           @click="display('likes')"
         >
           Likes

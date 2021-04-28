@@ -1,8 +1,5 @@
 <template>
-  <div
-    style="z-index: 200"
-    class="bg-black header flex items-center border-b border-faded-gray sticky top-0 p-3"
-  >
+  <div>
     <slot name="icon"></slot>
 
     <slot name="heading"></slot>

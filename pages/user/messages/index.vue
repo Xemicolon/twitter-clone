@@ -1,6 +1,9 @@
 <template>
   <div>
-    <Header class="justify-between" style="height: 10vh">
+    <Header
+      style="z-index: 200"
+      class="bg-black header flex flex-row justify-between items-center border-b border-faded-gray sticky top-0 p-3"
+    >
       <template #heading>
         <div>
           <p class="place-self-center font-semibold text-xl">Messages</p>

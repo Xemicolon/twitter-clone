@@ -1,6 +1,8 @@
 <template>
   <div class="min-h-screen">
-    <Header>
+    <Header
+      class="bg-black header flex items-center border-b border-faded-gray p-3"
+    >
       <template #icon>
         <nuxt-link
           to="/user/profile"
